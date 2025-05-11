@@ -1,12 +1,12 @@
 -- Create the database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS ucms_db;
-USE ucms_db;
+CREATE DATABASE IF NOT EXISTS ucms;
+USE ucms;
 
 -- Create users table
 CREATE TABLE IF NOT EXISTS users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     role ENUM('student', 'faculty', 'admin') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS departments (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
+    description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -35,31 +36,27 @@ CREATE TABLE IF NOT EXISTS complaint_subcategories (
     FOREIGN KEY (category_id) REFERENCES complaint_categories(id)
 );
 
+-- Create complaint_status table
+CREATE TABLE IF NOT EXISTS complaint_status (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    description TEXT
+);
+
 -- Create complaints table
 DROP TABLE IF EXISTS complaints;
 CREATE TABLE IF NOT EXISTS complaints (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    student_id INT NOT NULL,
-    roll_number VARCHAR(50),
+    user_id INT NOT NULL,
     department_id INT NOT NULL,
-    category_id INT NOT NULL,
-    subcategory_id INT,
-    assigned_to INT,
     subject VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    urgency_level ENUM('Low', 'Medium', 'High') DEFAULT 'Low',
-    status ENUM('pending', 'in_progress', 'resolved') DEFAULT 'pending',
-    attachment_path VARCHAR(255),
-    date_of_incident DATE,
-    location_of_incident VARCHAR(255),
-    anonymous_submission BOOLEAN DEFAULT FALSE,
+    status_id INT NOT NULL DEFAULT 1,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (student_id) REFERENCES users(id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (department_id) REFERENCES departments(id),
-    FOREIGN KEY (category_id) REFERENCES complaint_categories(id),
-    FOREIGN KEY (subcategory_id) REFERENCES complaint_subcategories(id),
-    FOREIGN KEY (assigned_to) REFERENCES users(id)
+    FOREIGN KEY (status_id) REFERENCES complaint_status(id)
 );
 
 -- Create messages table
@@ -85,17 +82,35 @@ CREATE TABLE IF NOT EXISTS notifications (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+-- Create complaint_responses table
+CREATE TABLE IF NOT EXISTS complaint_responses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    complaint_id INT NOT NULL,
+    user_id INT NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (complaint_id) REFERENCES complaints(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 -- Insert default admin user
 INSERT INTO users (name, email, password, role) VALUES 
 ('Admin User', 'admin@ucms.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
 
 -- Insert some default departments
-INSERT INTO departments (name) VALUES 
-('Computer Science'),
-('Electrical Engineering'),
-('Mechanical Engineering'),
-('Civil Engineering'),
-('Business Administration');
+INSERT INTO departments (name, description) VALUES 
+('Computer Science', 'The department of Computer Science and Engineering'),
+('Electrical Engineering', 'The department of Electrical Engineering'),
+('Mechanical Engineering', 'The department of Mechanical Engineering'),
+('Civil Engineering', 'The department of Civil Engineering'),
+('Business Administration', 'The department of Business Administration');
+
+-- Insert default complaint statuses
+INSERT INTO complaint_status (name, description) VALUES
+('Pending', 'Complaint is waiting for review'),
+('In Progress', 'Complaint is being processed'),
+('Resolved', 'Complaint has been resolved'),
+('Rejected', 'Complaint has been rejected');
 
 -- Remove all previous complaint categories and subcategories
 DELETE FROM complaint_subcategories;
