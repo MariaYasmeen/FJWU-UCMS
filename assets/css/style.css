@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f8f9fc;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo { 
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a { 
+  text-decoration: none;
+  position: relative;
+  padding: 5px;
+}
+
+.nav-links a:hover {
+  border-bottom: 2px solid #fff;
+}
+
+/* Dropdowns */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  background: white;
+  border-radius: 6px;
+  display: none;
+  flex-direction: column;
+  min-width: 160px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+}
+
+.dropdown-menu a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #374785;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f4ff;
+}
+
+/* User Dropdown */
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-dropdown img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+
+.user-dropdown .dropdown-menu {
+  right: 0;
+  top: 40px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 120px;
+  background: linear-gradient(to right, #a8c0ff, #baaef0);
+ }
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+
+
+
+.register-container {
+  display: flex;
+  margin: 20px;
+  min-height: 100vh; 
+}
+.register-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+.register-left img {
+  width: 90%; 
+  height: 88%;
+}
+.register-right {
+  flex: 1;
+  padding: 40px;
+  background-color: #fafafa;
+}
+.register-right form {
+  display: flex;
+  flex-direction: column;
+}
+.register-right input {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.register-right button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.register-right button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+  }
+  .register-left, .register-right {
+    flex: none;
+    width: 100%;
+  }
+}
