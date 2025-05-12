@@ -39,7 +39,7 @@ $base_path = '/ucms';
                                 <?php echo htmlspecialchars($_SESSION['name']); ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="<?php echo $base_path; ?>/profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $base_path; ?>/dashboard/<?php echo $_SESSION['role']; ?>/profile.php">Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo $base_path; ?>/auth/logout.php">Logout</a></li>
                             </ul>
