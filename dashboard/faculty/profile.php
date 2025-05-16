@@ -2,8 +2,8 @@
 require_once '../../includes/header.php';
 require_once '../../includes/db_connect.php';
 
-// Check if user is logged in and is a student
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
+// Check if user is logged in and is a faculty
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'faculty') {
     header("Location: {$base_path}/auth/login.php");
     exit();
 }
@@ -27,24 +27,19 @@ $user = $result->fetch_assoc();
                     <img src="<?php echo $base_path; ?>/assets/images/default-avatar.png" alt="Profile Picture" 
                          class="img-fluid rounded-circle mb-2" style="max-width: 100px;">
                     <h6 class="mb-0"><?php echo htmlspecialchars($user['name']); ?></h6>
-                    <small class="text-muted">Student</small>
+                    <small class="text-muted">Faculty</small>
                 </div>
 
                 <!-- Main Navigation -->
                 <ul class="nav flex-column mb-4">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/student/">
+                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/">
                             <i class="fas fa-home"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/student/new_complaint.php">
-                            <i class="fas fa-plus-circle"></i> New Complaint
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/student/my_complaints.php">
-                            <i class="fas fa-list"></i> My Complaints
+                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/complaints.php">
+                            <i class="fas fa-list"></i> View Complaints
                         </a>
                     </li>
                 </ul>
@@ -55,22 +50,22 @@ $user = $result->fetch_assoc();
                 </h6>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo $base_path; ?>/dashboard/student/profile.php">
+                        <a class="nav-link active" href="<?php echo $base_path; ?>/dashboard/faculty/profile.php">
                             <i class="fas fa-user"></i> Profile
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/student/account_settings.php">
+                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/account_settings.php">
                             <i class="fas fa-cog"></i> Account Settings
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/student/change_password.php">
+                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/change_password.php">
                             <i class="fas fa-key"></i> Change Password
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/student/upload_image.php">
+                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/upload_image.php">
                             <i class="fas fa-image"></i> Upload Image
                         </a>
                     </li>
@@ -88,7 +83,7 @@ $user = $result->fetch_assoc();
                 <div class="col-md-8 mx-auto">
                     <div class="card shadow">
                         <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Student Profile</h4>
+                            <h4 class="mb-0">Faculty Profile</h4>
                         </div>
                         <div class="card-body">
                             <div class="row mb-4">
@@ -97,7 +92,7 @@ $user = $result->fetch_assoc();
                                 </div>
                                 <div class="col-md-8">
                                     <h5 class="card-title"><?php echo htmlspecialchars($user['name']); ?></h5>
-                                    <p class="text-muted">Student</p>
+                                    <p class="text-muted">Faculty</p>
                                 </div>
                             </div>
                             
@@ -119,7 +114,7 @@ $user = $result->fetch_assoc();
                                     <h6>Account Information</h6>
                                     <table class="table">
                                         <tr>
-                                            <th>Student ID:</th>
+                                            <th>Faculty ID:</th>
                                             <td><?php echo htmlspecialchars($user['id']); ?></td>
                                         </tr>
                                         <tr>
@@ -131,13 +126,13 @@ $user = $result->fetch_assoc();
                             </div>
 
                             <div class="mt-4">
-                                <a href="<?php echo $base_path; ?>/dashboard/student/account_settings.php" class="btn btn-primary">
+                                <a href="<?php echo $base_path; ?>/dashboard/faculty/account_settings.php" class="btn btn-primary">
                                     <i class="fas fa-cog"></i> Account Settings
                                 </a>
-                                <a href="<?php echo $base_path; ?>/dashboard/student/change_password.php" class="btn btn-secondary">
+                                <a href="<?php echo $base_path; ?>/dashboard/faculty/change_password.php" class="btn btn-secondary">
                                     <i class="fas fa-key"></i> Change Password
                                 </a>
-                                <a href="<?php echo $base_path; ?>/dashboard/student/upload_image.php" class="btn btn-info">
+                                <a href="<?php echo $base_path; ?>/dashboard/faculty/upload_image.php" class="btn btn-info">
                                     <i class="fas fa-image"></i> Upload Image
                                 </a>
                             </div>
