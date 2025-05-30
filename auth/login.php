@@ -226,7 +226,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         <label for="password">Password</label>
                     </div>  <div class="mb-3">
-                <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
+                <button type="submit" style="background-color:rgb(6, 77, 49); color: white;" id="login-btn" name="login" class="btn   w-100">Login</button>
             </div>
         </form>
           <div class="register-link">

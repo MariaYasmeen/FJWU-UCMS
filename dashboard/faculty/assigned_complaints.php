@@ -65,7 +65,7 @@ $result = $stmt->get_result();
                                 <td><?php echo htmlspecialchars($row['student_name']); ?></td>
                                 <td><?php echo htmlspecialchars($row['department_name']); ?></td>
                                 <td>
-                                    <span class="badge bg-<?php 
+                                    <span style="  padding: 10px; border-radius: 5px; cursor: pointer;"class="badge bg-<?php 
                                         echo $row['status'] === 'pending' ? 'warning' : 
                                             ($row['status'] === 'in_progress' ? 'info' : 'success'); 
                                     ?>">
@@ -74,7 +74,8 @@ $result = $stmt->get_result();
                                 </td>
                                 <td><?php echo date('M d, Y', strtotime($row['created_at'])); ?></td>
                                 <td>
-                                    <a href="view_complaint.php?id=<?php echo $row['id']; ?>" 
+                                    <a style="background-color:rgb(7, 80, 64); color: #fff; padding: 10px; border-radius: 5px; cursor: pointer;" href="view_complaint.php?id=<?php echo $row['id']; ?>" 
+
                                        class="btn btn-sm btn-primary">View</a>
                                 </td>
                             </tr>

@@ -81,6 +81,40 @@ $base_path = '/ucms';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="<?php echo $base_path; ?>/assets/css/style.css">
 </head>
+<style>
+    .stat-btn {
+        background-color: white !important;
+        border: 2px solid #28a745; /* Bootstrap's green */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-radius: 10px;
+    }
+
+    .stat-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-btn .card-body {
+        padding: 3rem;
+    }
+
+    .stat-btn .card-title {
+        font-size: 1rem;
+        color: #333;
+        padding: 3rem;
+    }
+
+    .stat-btn h2 {
+        font-size: 1.8rem;
+        color: #28a745;
+        font-weight: bold;
+    }
+</style>
+
+
+
+
 <body>
     <?php include '../../includes/header.php'; ?>
     <?php include '../../includes/sidebar.php'; ?>
@@ -120,18 +154,18 @@ $base_path = '/ucms';
                         </div>
                     </button>
                 </div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-dark w-100 text-start stat-btn mb-2" data-detail="departments">
-                        <div class="card-body p-2">
-                            <h5 class="card-title mb-1">Departments</h5>
-                            <h2 class="mb-0"><?php echo $stats['total_departments']; ?></h2>
-                        </div>
-                    </button>
-                </div>
+             <div class="col-md-2">
+    <button type="button" class="btn btn-dark w-100 text-start stat-btn mb-2" data-detail="departments">
+        <div class="card-body p-2">
+            <h5 class="card-title mb-1">Total Departments</h5>
+            <h2 class="mb-0"><?php echo $stats['total_departments']; ?></h2>
+        </div>
+    </button>
+</div>
                 <div class="col-md-2">
                     <button type="button" class="btn btn-warning w-100 text-start stat-btn mb-2" data-detail="categories">
                         <div class="card-body p-2">
-                            <h5 class="card-title mb-1">Categories</h5>
+                            <h5 class="card-title mb-1">Total Categories</h5>
                             <h2 class="mb-0"><?php echo $stats['total_categories']; ?></h2>
                         </div>
                     </button>

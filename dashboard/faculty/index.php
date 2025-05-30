@@ -58,6 +58,153 @@ $base_path = '/ucms';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="<?php echo $base_path; ?>/assets/css/style.css">
 </head>
+
+<style>
+    body {
+        background-color: #f5fdf7;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    h2, h5, h6 {
+        color: #ffffff;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    /* Card Styling */
+    .card {
+        background-color: #a8dfb5; /* Light green */
+        color: #ffffff;
+        border: 1px solid #7dcf93;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #90d9a4;
+        border-bottom: 1px solid #7dcf93;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .card-title {
+        margin: 0;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    /* Button Styling */
+    .btn-primary,
+    .btn-success,
+    .btn-dark {
+        background-color: #4caf50;
+        border-color: #4caf50;
+        color: #fff;
+        transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-success:hover,
+    .btn-dark:hover {
+        background-color: #43a047;
+        border-color: #43a047;
+    }
+
+    .btn-sm {
+        padding: 4px 10px;
+        font-size: 0.85rem;
+    }
+
+    /* Statistics Cards (optional override) */
+    .bg-primary,
+    .bg-warning,
+    .bg-info,
+    .bg-success {
+        background-color: #a8dfb5 !important;
+        color: #ffffff !important;
+        border: 1px solid #7dcf93;
+    }
+
+    /* Table */
+    .table th {
+        background-color: #90d9a4;
+        color: #ffffff;
+        border: none;
+    }
+
+    .table td {
+        color: #ffffff;
+        vertical-align: middle;
+        background-color: #a8dfb5;
+        border-top: 1px solid #bce3c9;
+    }
+
+    /* Badge Colors */
+    .badge.bg-warning {
+        background-color: #ffc107 !important;
+        color: #fff;
+    }
+
+    .badge.bg-info {
+        background-color: #17a2b8 !important;
+        color: #fff;
+    }
+
+    .badge.bg-success {
+        background-color: #28a745 !important;
+        color: #fff;
+    }
+
+    .badge.bg-secondary {
+        background-color: #6c757d !important;
+        color: #fff;
+    }
+
+    /* Notification List */
+    .list-group-item {
+        background-color: #c1ebcf;
+        color: #ffffff;
+        border: none;
+        margin-bottom: 5px;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+    }
+
+    .list-group-item:hover {
+        background-color: #a8dfb5;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .main-content {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .btn-sm {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+        }
+    }
+</style>
+
+
+
 <body>
     <?php include '../../includes/header.php'; ?>
     <?php include '../../includes/sidebar.php'; ?>
@@ -69,7 +216,7 @@ $base_path = '/ucms';
             <!-- Statistics Cards -->
             <div class="row mb-4">
                 <div class="col-md-3">
-                    <div class="card bg-primary text-white">
+                    <div class="card ">
                         <div class="card-body">
                             <h5 class="card-title">Total Assigned</h5>
                             <h2><?php echo $stats['total']; ?></h2>
@@ -77,7 +224,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-warning text-white">
+                    <div class="card ">
                         <div class="card-body">
                             <h5 class="card-title">Pending</h5>
                             <h2><?php echo $stats['pending']; ?></h2>
@@ -85,7 +232,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-info text-white">
+                    <div class="card e">
                         <div class="card-body">
                             <h5 class="card-title">In Progress</h5>
                             <h2><?php echo $stats['in_progress']; ?></h2>
@@ -93,7 +240,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-success text-white">
+                    <div class="card    ">
                         <div class="card-body">
                             <h5 class="card-title">Resolved</h5>
                             <h2><?php echo $stats['resolved']; ?></h2>
@@ -108,7 +255,7 @@ $base_path = '/ucms';
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="card-title mb-0">Recent Assigned Complaints</h5>
-                            <a href="assigned_complaints.php" class="btn btn-primary btn-sm">View All</a>
+                            <a href="assigned_complaints.php" style="background-color:rgb(7, 80, 64); color: #fff; padding: 10px; border-radius: 5px; cursor: pointer;" class="btn  btn-sm">View All</a>
                         </div>
                         <div class="card-body">
                             <?php if ($recent_result->num_rows > 0): ?>
@@ -131,7 +278,7 @@ $base_path = '/ucms';
                                                     <td><?php echo htmlspecialchars($complaint['student_name']); ?></td>
                                                     <td><?php echo htmlspecialchars($complaint['department_name']); ?></td>
                                                     <td>
-                                                        <span class="badge bg-<?php 
+                                                        <span style="background-color:rgb(7, 80, 64); color: #fff; padding: 10px; border-radius: 5px; cursor: pointer;" class="badge bg-<?php 
                                                             echo $complaint['status'] === 'pending' ? 'warning' : 
                                                                 ($complaint['status'] === 'in_progress' ? 'info' : 
                                                                 ($complaint['status'] === 'resolved' ? 'success' : 'secondary')); 
@@ -142,12 +289,14 @@ $base_path = '/ucms';
                                                     <td><?php echo date('M d, Y', strtotime($complaint['created_at'])); ?></td>
                                                     <td>
                                                         <a href="view_complaint.php?id=<?php echo $complaint['id']; ?>" 
+                                                        style="background-color:rgb(7, 80, 64); color: #fff; padding: 10px; border-radius: 5px; cursor: pointer;"  
                                                            class="btn btn-sm btn-primary">
                                                             View
                                                         </a>
                                                         <?php if ($complaint['status'] !== 'resolved'): ?>
                                                             <a href="respond_complaint.php?id=<?php echo $complaint['id']; ?>" 
-                                                               class="btn btn-sm btn-success">
+                                                            style="background-color:rgb(7, 80, 64); color: #fff; padding: 10px; border-radius: 5px; cursor: pointer;" 
+                                                               class="btn  ">
                                                                 Respond
                                                             </a>
                                                         <?php endif; ?>

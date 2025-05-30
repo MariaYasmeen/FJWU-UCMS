@@ -106,6 +106,76 @@ $base_path = '/ucms';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="<?php echo $base_path; ?>/assets/css/style.css">
 </head>
+<style>
+    body {
+    background-color: #f3f4f6;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    background-color: #14532d !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand,
+.dropdown-menu a {
+    color: white !important;
+}
+
+.card {
+    background: #e9f5ec !important;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1), -5px -5px 15px rgba(255,255,255,0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-title {
+    color: #14532d;
+}
+
+.card .btn {
+    border-radius: 12px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: #14532d;
+    border-color: #14532d;
+}
+
+.btn-primary:hover {
+    background-color: #0f3e21;
+    border-color: #0f3e21;
+}
+
+.badge.bg-warning {
+    background-color: #f59e0b !important;
+}
+.badge.bg-info {
+    background-color: #3b82f6 !important;
+}
+.badge.bg-success {
+    background-color: #10b981 !important;
+}
+.badge.bg-secondary {
+    background-color: #6b7280 !important;
+}
+
+.list-group-item {
+    background: #f0fdf4;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.05), -2px -2px 8px rgba(255,255,255,0.5);
+}
+
+    </style>
 <body>
     <?php include '../../includes/header.php'; ?>
     <?php include '../../includes/sidebar.php'; ?>
@@ -117,7 +187,7 @@ $base_path = '/ucms';
             <!-- Statistics Cards -->
             <div class="row mb-4">
                 <div class="col-md-3">
-                    <div class="card bg-primary text-white">
+                    <div class="card  ">
                         <div class="card-body">
                             <h5 class="card-title">Total Complaints</h5>
                             <h2><?php echo $stats['total']; ?></h2>
@@ -125,7 +195,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-warning text-white">
+                    <div class="card ">
                         <div class="card-body">
                             <h5 class="card-title">Pending</h5>
                             <h2><?php echo $stats['pending']; ?></h2>
@@ -133,7 +203,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-info text-white">
+                    <div class="card  ">
                         <div class="card-body">
                             <h5 class="card-title">In Progress</h5>
                             <h2><?php echo $stats['in_progress']; ?></h2>
@@ -141,7 +211,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-success text-white">
+                    <div class="card ">
                         <div class="card-body">
                             <h5 class="card-title">Resolved</h5>
                             <h2><?php echo $stats['resolved']; ?></h2>
@@ -156,7 +226,7 @@ $base_path = '/ucms';
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="card-title mb-0">Recent Complaints</h5>
-                            <a href="submit_complaint.php" class="btn btn-primary btn-sm">Submit New Complaint</a>
+                            <a href="submit_complaint.php" class="btn  b sm">Submit New Complaint</a>
                         </div>
                         <div class="card-body">
                             <?php if ($recent_result && $recent_result->num_rows > 0): ?>

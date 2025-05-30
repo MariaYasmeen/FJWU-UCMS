@@ -78,12 +78,171 @@ $base_path = '/ucms';
     <link rel="stylesheet" href="<?php echo $base_path; ?>/assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
+<style>
+  /* General body and container */
+  body {
+    background-color: #f7faf6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2f4f32;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-content {
+    padding: 3rem 4rem !important; 
+    margin: auto;
+  }
+  
+  h3 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #2e7d32; /* dark green */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  
+  /* Card-like white background with soft shadow */
+  .container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(46, 125, 50, 0.15);
+    padding: 2rem 2.5rem;
+  }
+  
+  /* Form labels */
+  label.form-label {
+    color: #3a5d22;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  
+  /* Inputs and selects */
+  input.form-control,
+  select.form-select,
+  textarea.form-control {
+    background-color: #f2f8f2;
+    border: 1.8px solid #a4d4a5;
+    border-radius: 10px;
+    padding: 0.6rem 0.75rem;
+    color: #2f4f32;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input.form-control:focus,
+  select.form-select:focus,
+  textarea.form-control:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px 0 rgba(76, 175, 80, 0.4);
+    outline: none;
+    background-color: #e8f5e9;
+  }
+  
+  /* Readonly inputs style */
+  input[readonly] {
+    background-color: #dcedc8;
+    color: #33691e;
+    font-weight: 600;
+  }
+  
+  /* Textarea */
+  textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Row spacing */
+  .row.mb-3 {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Checkbox style */
+  .form-check-label {
+    color: #3a5d22;
+    font-weight: 600;
+  }
+  .form-check-input {
+    border-radius: 4px;
+    border: 1.5px solid #a4d4a5;
+    width: 18px;
+    height: 18px;
+    margin-top: 0.3rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  .form-check-input:checked {
+    background-color: #4caf50;
+    border-color: #388e3c;
+  }
+  
+  /* Button */
+  button.btn-primary {
+    background-color: #4caf50;
+    border: none;
+    padding: 0.65rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.35);
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 260px;
+    display: block;
+    margin: 1rem auto 0;
+  }
+  button.btn-primary:hover,
+  button.btn-primary:focus {
+    background-color: #388e3c;
+    box-shadow: 0 6px 14px rgba(56, 142, 60, 0.6);
+    outline: none;
+  }
+  
+  /* Alerts */
+  .alert-success {
+    background-color: #dcedc8;
+    color: #33691e;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.8rem;
+    font-weight: 600;
+    border: 1.5px solid #aed581;
+  } 
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.8rem;
+    font-weight: 600;
+    border: 1.5px solid #f5c2c7;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem 1.8rem;
+    }
+    button.btn-primary {
+      max-width: 100%;
+    }
+  }
+</style>
+
 <body>
 <?php include '../../includes/header.php'; ?>
 <?php include '../../includes/sidebar.php'; ?>
 <div class="main-content">
-    <div class="container mt-4">
-        <h3>Student Complaint Form</h3>
+    <div class=" mt-4">
+        <h3 class="headingcss">Student Complaint Form</h3>
+
         <?php if ($success): ?>
             <div class="alert alert-success">Complaint submitted successfully!</div>
         <?php elseif ($error): ?>

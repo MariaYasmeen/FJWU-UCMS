@@ -18,60 +18,8 @@ $user = $result->fetch_assoc();
 ?>
 
 <div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar -->
-        <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3">
-                <!-- Profile Image and Name -->
-                <div class="text-center mb-4">
-                    <img src="<?php echo $base_path; ?>/assets/images/default-avatar.png" alt="Profile Picture" 
-                         class="img-fluid rounded-circle mb-2" style="max-width: 100px;">
-                    <h6 class="mb-0"><?php echo htmlspecialchars($user['name']); ?></h6>
-                    <small class="text-muted">Faculty</small>
-                </div>
-
-                <!-- Main Navigation -->
-                <ul class="nav flex-column mb-4">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/">
-                            <i class="fas fa-home"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/complaints.php">
-                            <i class="fas fa-list"></i> View Complaints
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Settings Section -->
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Settings</span>
-                </h6>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo $base_path; ?>/dashboard/faculty/profile.php">
-                            <i class="fas fa-user"></i> Profile
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/account_settings.php">
-                            <i class="fas fa-cog"></i> Account Settings
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/change_password.php">
-                            <i class="fas fa-key"></i> Change Password
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/upload_image.php">
-                            <i class="fas fa-image"></i> Upload Image
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div class="row"> 
+    <?php include '../../includes/sidebar.php'; ?>
 
         <!-- Main content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -104,11 +52,7 @@ $user = $result->fetch_assoc();
                                             <th>Email:</th>
                                             <td><?php echo htmlspecialchars($user['email']); ?></td>
                                         </tr>
-                                        <tr>
-                                            <th>Registration Date:</th>
-                                            <td><?php echo date('F j, Y', strtotime($user['created_at'])); ?></td>
-                                        </tr>
-                                    </table>
+                                      </table>
                                 </div>
                                 <div class="col-md-6">
                                     <h6>Account Information</h6>

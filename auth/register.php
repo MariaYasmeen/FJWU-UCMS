@@ -118,13 +118,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-width: 400px;
         }
 
-        .login-form {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+   .register-form {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
         .form-title {
             font-size: 2rem;
             color: var(--dark-bg);
@@ -132,17 +134,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: 700;
         }
 
-        .form-floating {
-            margin-bottom: 20px;
-        }
+    .form-floating {
+    width: 100%;
+}
 
-        .form-floating > .form-control {
-            padding: 1rem 0.75rem;
-            height: calc(3.5rem + 2px);
-            line-height: 1.25;
-            border-radius: 10px;
-            border: 1px solid #e3e6f0;
-        }
+.form-floating > .form-control,
+.form-floating > .form-select {
+    width: 100%;
+    padding: 1rem 0.75rem;
+    margin:3px;
+    height: calc(3.5rem + 2px);
+    line-height: 1.25;
+    border-radius: 10px;
+    border: 1px solid #e3e6f0;
+}
 
         .form-floating > label {
             padding: 1rem 0.75rem;
@@ -153,20 +158,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             box-shadow: 0 0 0 0.2rem rgba(27, 77, 62, 0.1);
         }
 
-        .btn-register {
-            background: var(--primary-color);
-            border: none;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
+     .btn-register {
+    width: 100%;
+    background-color: rgb(6, 77, 49);
+    color: white;
+    padding: 14px 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
 
-        .btn-register:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
+.btn-register:hover {
+    background-color: rgb(4, 60, 39);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
 
         .login-link {
             text-align: center;
@@ -215,39 +226,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Join FJWU</h2>
                 <p>Create your account to start submitting and tracking complaints</p>
             </div>
-            <div class="login-form">
+            <div class="register-form">
                 <h2 class="form-title">Register</h2>
                 
             <?php if(isset($error)): ?>
                 <div class="alert alert-danger"><?php echo $error; ?></div>
             <?php endif; ?>
 
-            <form method="POST" action="register.php">
-                   <div class="form-floating mb-3"> 
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
-                    </div>
+          <form method="POST" action="register.php">
+    <div class="form-floating mb-3 w-100">
+        <input type="text" name="name" class="form-control w-100" placeholder="Name" required>
+    </div>
 
-              <div class="form-floating mb-3"> 
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
-                </div>
-               <div class="form-floating mb-3"> 
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
-                </div>
-              <div class="form-floating mb-3"> 
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
-                </div>
-                <div class="form-floating mb-3"> 
-                    <select name="role" class="form-select" required>
-                        <option value="">Select Role</option>
-                        <option value="student">Student</option>
-                        <option value="faculty">Faculty</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary btn-register w-100">
-                        <i class="fas fa-user-plus me-2"></i>Register
-                    </button>
-            </form>
+    <div class="form-floating mb-3 w-100">
+        <input type="email" name="email" class="form-control w-100" placeholder="Email" required>
+    </div>
+
+    <div class="form-floating mb-3 w-100">
+        <input type="password" name="password" class="form-control w-100" placeholder="Password" required>
+    </div>
+
+    <div class="form-floating mb-3 w-100">
+        <select name="role" class="form-select w-100" required>
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+            <option value="faculty">Faculty</option>
+            <option value="admin">Admin</option>
+        </select>
+    </div>
+<button type="submit" id="login-btn" name="login" class="btn-register">
+    <i class="fas fa-user-plus me-2"></i> Register Now
+</button>
+
+
+  </form>
+
 
              <div class="login-link">
                     Already have an account? <a href="login.php">Login here</a>
