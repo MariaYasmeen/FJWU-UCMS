@@ -67,11 +67,11 @@ try {
     
     $recent_result = $stmt->get_result();
     
-    // Get recent notifications
-    $notif_sql = "SELECT * FROM notifications 
-                  WHERE user_id = ? 
-                  ORDER BY created_at DESC 
-                  LIMIT 5";
+    // // Get recent notifications
+    // $notif_sql = "SELECT * FROM notifications 
+    //               WHERE user_id = ? 
+    //               ORDER BY created_at DESC 
+    //               LIMIT 5";
     
     if (!$stmt = $conn->prepare($notif_sql)) {
         throw new Exception("Error preparing notifications query: " . $conn->error);

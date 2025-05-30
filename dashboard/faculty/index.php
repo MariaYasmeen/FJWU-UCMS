@@ -38,12 +38,12 @@ $recent_sql = "SELECT c.*, d.name as department_name, u.name as student_name
                LIMIT 5";
 $recent_result = $conn->query($recent_sql);
 
-// Get recent notifications
-$notif_sql = "SELECT * FROM notifications 
-              WHERE user_id = $faculty_id 
-              ORDER BY created_at DESC 
-              LIMIT 5";
-$notif_result = $conn->query($notif_sql);
+// // Get recent notifications
+// $notif_sql = "SELECT * FROM notifications 
+//               WHERE user_id = $faculty_id 
+//               ORDER BY created_at DESC 
+//               LIMIT 5";
+// $notif_result = $conn->query($notif_sql);
 
 $base_path = '/ucms';
 ?>
