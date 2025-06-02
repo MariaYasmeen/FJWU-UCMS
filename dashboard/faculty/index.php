@@ -313,7 +313,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
 
-                <!-- Recent Notifications -->
+                <!-- Recent Notifications
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -337,7 +337,7 @@ $base_path = '/ucms';
                             <?php endif; ?>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

@@ -249,7 +249,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form-floating mb-3 w-100">
         <select name="role" class="form-select w-100" required>
             <option value="">Select Role</option>
-            <option value="student">Student</option>
+            <option value="student">Student - CR</option>
             <option value="faculty">Faculty</option>
             <option value="admin">Admin</option>
         </select>

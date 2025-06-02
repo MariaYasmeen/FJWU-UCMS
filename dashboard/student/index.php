@@ -73,19 +73,19 @@ try {
     //               ORDER BY created_at DESC 
     //               LIMIT 5";
     
-    if (!$stmt = $conn->prepare($notif_sql)) {
-        throw new Exception("Error preparing notifications query: " . $conn->error);
-    }
+    // if (!$stmt = $conn->prepare($notif_sql)) {
+    //     throw new Exception("Error preparing notifications query: " . $conn->error);
+    // }
     
-    if (!$stmt->bind_param("i", $student_id)) {
-        throw new Exception("Error binding notifications parameters: " . $stmt->error);
-    }
+    // if (!$stmt->bind_param("i", $student_id)) {
+    //     throw new Exception("Error binding notifications parameters: " . $stmt->error);
+    // }
     
-    if (!$stmt->execute()) {
-        throw new Exception("Error executing notifications query: " . $stmt->error);
-    }
+    // if (!$stmt->execute()) {
+    //     throw new Exception("Error executing notifications query: " . $stmt->error);
+    // }
     
-    $notif_result = $stmt->get_result();
+    // $notif_result = $stmt->get_result();
     
 } catch (Exception $e) {
     // Log the error and display a user-friendly message
@@ -282,7 +282,7 @@ $base_path = '/ucms';
                     </div>
                 </div>
 
-                <!-- Recent Notifications -->
+                <!-- Recent Notifications
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -306,7 +306,7 @@ $base_path = '/ucms';
                             <?php endif; ?>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
