@@ -56,12 +56,7 @@ $base_path = '/ucms';
                         <i class="fas fa-tasks"></i> Assigned Complaints
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/complaint_history.php">
-                        <i class="fas fa-history"></i> Complaint History
-                    </a>
-                </li>
-                <li class="nav-item">
+                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo $base_path; ?>/dashboard/faculty/profile.php">
                         <i class="fas fa-user"></i> Profile
                     </a>
